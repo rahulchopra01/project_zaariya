@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Error Page</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e69dd4;
+  }
+  .xx{
+    font-size: 30px;
+  }
+  .error-container {
+    text-align: center;
+    margin-top: 100px;
+    animation: slideIn 0.5s ease forwards;
+  }
+  .error-container h1 {
+    font-size: 60px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #333;
+    margin-bottom: 10px;
+    animation: fadeIn 1s ease forwards;
+  }
+  .error-container p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 30px;
+    animation: fadeIn 1s ease forwards;
+  }
+  .error-container a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    animation: fadeIn 1s ease forwards;
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="error-container">
+    <h1> <b> 😔404😔 </b></h1>
+    <p>Oops! Page not found.</p>
+    <p>Return to <a href="index.html">Homepage 🏠</a></p>
+    <p class="xx"> We are unable to reset your password at this moment. 🙏</p>
+  </div>
+</body>
+</html>

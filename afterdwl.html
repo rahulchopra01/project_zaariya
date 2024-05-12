@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pop-up Box</title>
+<style>
+ 
+  .popup {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 9999; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px; /* 60px from the top */
+    
+    background-size: cover;
+  }
+  
+  /* Content inside the pop-up box */
+  .popup-content {
+    background-color: #fefefe;
+    margin: 5% auto; /* 5% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* 80% width */
+    background-image: url('logo.png');
+    background-size: cover;
+  }
+  
+  /* Close button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body background="logo.png" >
+
+<!-- The pop-up box -->
+<div id="popupBox" class="popup">
+  <!-- Content of the pop-up box -->
+  <div class="popup-content">
+    <span class="close" onclick="closePopup()">&times;</span>
+    <p><h1>PAYMENT DONE <BR>
+        Thanks for choosing Zaariya
+    </h1></p>
+  </div>
+</div>
+
+<!-- Button to open the pop-up box -->
+<button onclick="openPopup()"><center>Click here to Confirm it.</center></button>
+
+<script>
+  // Function to open the pop-up box
+  function openPopup() {
+    document.getElementById("popupBox").style.display = "block";
+  }
+
+  // Function to close the pop-up box
+  function closePopup() {
+    document.getElementById("popupBox").style.display = "none";
+  }
+</script>
+
+</body>
+</html>

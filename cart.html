@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Zaariya</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        .rahul {
+        max-width: 2500px;
+        margin: 0 auto;
+        padding: 20px,20px;
+      
+        background-color: #005c76;
+        /* Ensure the background image covers the entire container */
+        background-size: cover;
+        }
+
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .custom-button {
+    display: inline-block;
+  padding: 10px 20px;
+  background-color: #4CAF50; /* Green */
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Hover effect */
+.custom-button:hover {
+  background-color: #45a049; /* Darker green */
+}
+        .product {
+            width: 200px;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+
+        .cart {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        .cartcontainer{
+            background-color: #ccdee3;
+        }
+
+        .cart-items {
+            list-style: none;
+            padding: 0;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .checkout {
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const addToCartButtons = document.querySelectorAll('.add-to-cart');
+            const cartItems = document.querySelector('.cart-items');
+            const totalPrice = document.querySelector('.total-price');
+            let total = 0;
+    
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const price = parseFloat(button.getAttribute('data-price'));
+                    total += price;
+                    totalPrice.textContent = `₹${total.toFixed(2)}`; // Updated to use ₹ symbol
+                    const itemName = button.previousElementSibling.previousElementSibling.textContent;
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `${itemName} - ₹${price.toFixed(2)}`; // Updated to use ₹ symbol
+                    cartItems.appendChild(listItem);
+                });
+            });
+    
+            const checkoutButton = document.querySelector('.checkout');
+            checkoutButton.addEventListener('click', function() {
+                alert(`Total: ₹${total.toFixed(2)}`); // Updated to use ₹ symbol
+                // Implement further actions like sending data to a server
+            });
+        });
+    </script>
+    
+</head>
+<body>
+  <header class="bg-light">
+    <div class="rahul">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="logo.png">
+                <img src="logo.png" alt="Zaariya Logo" width="120">
+            </a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="indexx.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="category.html">Categories</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cart.html"><i class="fas fa-shopping-cart"></i></a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+    <div class="cartcontainer">
+        <h1><center><b><u>PRODUCTS YOU SHOULD HAVE</u></b></center></h1>
+        <div class="products">
+            <!-- new products -->
+            <div class="product">
+                <img src="khadi men vitamin C serum.jpeg" width="100px"
+                height="350px" class="card-img-top"alt="khadi men">
+                <h3>Khadi Men Vitamin C Serum</h3>
+                <p>₹299</p>
+                <button class="add-to-cart" data-price="299">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Hydrating Facial Moisturizer for Men Sandalwood & Orange Peel With SPF 25.jpeg" width="100px"
+                height="350px" class="card-img-top"alt="khadi men">
+                <h3>Hydrating Facial Moisturizer for Men Sandalwood & Orange Peel With SPF 25</h3>
+                <p>₹2225</p>
+                <button class="add-to-cart" data-price="2225">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Biotique Bio Wild Grass A Soothing After Shave Gel For Men, 120ml.jpeg" width="100px"
+                height="350px" class="card-img-top"alt="khadi men">
+                <h3>Biotique Bio Wild Grass A Soothing After Shave Gel For Men, 120ml</h3>
+                <p>₹180</p>
+                <button class="add-to-cart" data-price="180">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Orange Brightening Face Lotion 120ml.jpeg" width="100px"
+                height="350px" class="card-img-top"alt="khadi men">
+                <h3>Orange Brightening Face Lotion 120ml</h3>
+                <p>₹199</p>
+                <button class="add-to-cart" data-price="199">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="rollon.jpeg" width="100px"
+                height="350px" class="card-img-top"alt="khadi men">
+                <h3>Be Bodywise 4% AHA BHA Underarm Roll On - Treats Pigmentation & Odour - Lactic Acid & Salicylic Acid</h3>
+                <p>₹329</p>
+                <button class="add-to-cart" data-price="329">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="episoft ac soft.jpeg" width="100px"
+                height="350px" class="card-img-top"alt="khadi men">
+                <h3>Episoft AC Moisturiser SPF 30 With Microencapsulated Sunscreen
+                    (75gm)</h3>
+                <p>₹480</p>
+                <button class="add-to-cart" data-price="480">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="bdia body lotion.jpeg" width="100px"
+                height="350px" class="card-img-top"alt="khadi men">
+                <h3>Wishcare 10% AHA + 1% BHA Body Lotion - Glycolic & Lactic Acid Body Lotion With Niacinamide</h3>
+                <p>₹389</p>
+                <button class="add-to-cart" data-price="389">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="Biotique Bio Papaya Visibly Glowing Skin Face Wash For All Skin Types (Deep Cleanse).jpeg" width="100px"
+                height="350px" class="card-img-top"alt="khadi men">
+                <h3>Biotique Bio Papaya Visibly Glowing Skin Face Wash For All Skin Types (Deep Cleanse).jpeg</h3>
+                <p>₹168</p>
+                <button class="add-to-cart" data-price="168">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Fabessentials Orange Basil Organic Handmade Bathing Bar - 100 gm.jpeg" width="100px"
+                height="350px" class="card-img-top"alt="khadi men">
+                <h3>Fabessentials Orange Basil Organic Handmade Bathing Bar - 100 gm</h3>
+                <p>₹195</p>
+                <button class="add-to-cart" data-price="195">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Hibiscus BlackSeed Post-Wash Hair Balm.jpeg" width="100px"
+                height="350px" class="card-img-top"alt="khadi men">
+                <h3>Hibiscus BlackSeed Post-Wash Hair Balm</h3>
+                <p>₹329</p>
+                <button class="add-to-cart" data-price="329">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Perfect Grooming Kit.jpeg" width="100px"
+                height="350px" class="card-img-top"alt="khadi men">
+                <h3>Perfect Grooming Kit</h3>
+                <p>₹459</p>
+                <button class="add-to-cart" data-price="459">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="anti hair fall cleanser.jpeg" width="100px"
+                height="350px" class="card-img-top"alt="khadi men">
+                <h3>Anti Hair Fall Cleanser</h3>
+                <p>₹199</p>
+                <button class="add-to-cart" data-price="199">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Khadi Men Amla & Bhringraj Hair Cleanser.jpeg" width="100px"
+                height="350px" class="card-img-top"alt="khadi men">
+                <h3>Khadi Men Amla & Bhringraj Hair Cleanserl</h3>
+                <p>₹199</p>
+                <button class="add-to-cart" data-price="199">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Ocean Kelp Hair & Body Wash Protein Rich 120ml.jpeg" width="100px"
+                height="350px" class="card-img-top"alt="khadi men">
+                <h3>Ocean Kelp Hair & Body Wash Protein Rich 120ml</h3>
+                <p>₹180</p>
+                <button class="add-to-cart" data-price="180">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Palmyra Expert Shave Gel 50ml.jpeg" width="100px"
+                height="350px" class="card-img-top"alt="khadi men">
+                <h3>Palmyra Expert Shave Gel 50ml</h3>
+                <p>₹75</p>
+                <button class="add-to-cart" data-price="75">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Orris Root Brightening Face Wash 120ml.jpeg" width="100px"
+                height="350px" class="card-img-top"alt="khadi men">
+                <h3>Orris Root Brightening Face Wash 120ml</h3>
+                <p>₹150</p>
+                <button class="add-to-cart" data-price="150">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Facial Ubtan Multani Mitti.jpeg" width="100px"
+                height="350px" class="card-img-top"alt="khadi men">
+                <h3>Facial Ubtan Multani Mitti</h3>
+                <p>₹650</p>
+                <button class="add-to-cart" data-price="650">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="khadi men charcoal kit.jpeg" width="100px"
+                height="350px" class="card-img-top"alt="khadi men">
+                <h3>Khadi Men Charcoal Kit</h3>
+                <p>₹399</p>
+                <button class="add-to-cart" data-price="399">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="sandalwood.jpeg" width="100px"
+                height="350px" class="card-img-top"alt="khadi men">
+                <h3>Facial Cleanser Sandalwood & Orange Peel</h3>
+                <p>₹1525</p>
+                <button class="add-to-cart" data-price="1525">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="khadi men d tan kit.jpeg" width="100px"
+                height="350px" class="card-img-top"alt="khadi men">
+                <h3>Khadi Men De - Tan Kit</h3>
+                <p>₹399</p>
+                <button class="add-to-cart" data-price="399">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="lipstick.jpeg" width="100px"
+                height="350px" class="card-img-top"alt="lipstick">
+                <h3>Lipstick</h3>
+                <p>₹299</p>
+                <button class="add-to-cart" data-price="299">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="bodylotions.jpg" width="100px"
+                height="350px" class="card-img-top" alt="Body Lotion">
+                <h3> Vaseline Body Lotion</h3>
+                <p>₹149</p>
+                <button class="add-to-cart" data-price="149">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="eyeliner.jpeg" width="100px"
+                height="350px" class="card-img-top" alt="Eyeliner">
+                <h3> Eyeliner</h3>
+                <p>₹45</p>
+                <button class="add-to-cart" data-price="45">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="facemoisturizer.jpeg" width="100px"
+                height="350px" class="card-img-top" alt="Face Moisturizer">
+                <h3> Face Moisturizer</h3>
+                <p>₹199</p>
+                <button class="add-to-cart" data-price="199">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="foundation.jpg" width="100px"
+                height="350px" class="card-img-top" alt="Foundation">
+                <h3> Foundation</h3>
+                <p>₹299</p>
+                <button class="add-to-cart" data-price="299">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="hair serum.jpeg" width="100px"
+                height="350px" class="card-img-top" alt="Hair Serum">
+                <h3> Hair Serum</h3>
+                <p>₹299</p>
+                <button class="add-to-cart" data-price="299">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="lipliner.jpeg" width="100px"
+                height="350px" class="card-img-top" alt="Lip Liner">
+                <h3> Lip Liner</h3>
+                <p>₹599</p>
+                <button class="add-to-cart" data-price="599">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="shampoo.jpeg" width="100px"
+                height="350px" class="card-img-top" alt="Shampoo">
+                <h3> Shampoo</h3>
+                <p>₹499</p>
+                <button class="add-to-cart" data-price="499">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="straightner.jpeg" width="100px"
+                height="350px" class="card-img-top" alt="Straightner">
+                <h3> Straightner</h3>
+                <p>₹399</p>
+                <button class="add-to-cart" data-price="399">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="bb creame.jpeg" width="100px"
+                height="350px" class="card-img-top" alt="BB Creame">
+                <h3> BB Creame</h3>
+                <p>₹499</p>
+                <button class="add-to-cart" data-price="499">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="sunscreen.jpeg" width="100px"
+                height="350px" class="card-img-top" alt="Sunscreen">
+                <h3> Sunscreen</h3>
+                <p>₹399</p>
+                <button class="add-to-cart" data-price="399">Add to Cart</button>
+            </div>
+            
+            <div class="product">
+                <img src="cleanser.jpeg" width="100px"
+                height="350px" class="card-img-top" alt="Cleanser">
+                <h3> Cleanser</h3>
+                <p>₹699</p>
+                <button class="add-to-cart" data-price="699">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="conditioner.jpeg" width="100px"
+                height="350px" class="card-img-top" alt="Conditioner">
+                <h3> Conditioner</h3>
+                <p>₹699</p>
+                <button class="add-to-cart" data-price="699">Add to Cart</button>
+            </div>
+
+    
+            <div class="product">
+                <img src="contact lens.jpeg" width="100px"
+                height="350px" class="card-img-top" alt="Contact Lens ">
+                <h3> Contact Lens </h3>
+                <p>₹99</p>
+                <button class="add-to-cart" data-price="99">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="creme blush.jpeg" width="100px"
+                height="350px" class="card-img-top" alt="Creme blush">
+                <h3> Creme blush</h3>
+                <p>₹569</p>
+                <button class="add-to-cart" data-price="569">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="dovebodywash.jpeg" width="100px"
+                height="350px" class="card-img-top" alt="Dove Body Wash">
+                <h3> Dove Body Wash</h3>
+                <p>₹569</p>
+                <button class="add-to-cart" data-price="569">Add to Cart</button>
+            </div>
+            
+            <div class="product">
+                <img src="eyebrow enhancer.jpeg" width="100px"
+                height="350px" class="card-img-top" alt="Eyebrow Enhancer">
+                <h3> Eyebrow Enhancer</h3>
+                <p>₹469</p>
+                <button class="add-to-cart" data-price="469">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="eyeliner.jpeg" width="100px"
+                height="350px" class="card-img-top" alt="Eye Liner">
+                <h3> Eye Liner</h3>
+                <p>₹369</p>
+                <button class="add-to-cart" data-price="369">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="eyeprimer.jpeg" width="100px"
+                height="350px" class="card-img-top" alt="Eye Primer">
+                <h3> Eye Primer</h3>
+                <p>₹269</p>
+                <button class="add-to-cart" data-price="269">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="eyeshadow.jpeg" width="100px"
+                height="350px" class="card-img-top" alt="eye Shadow">
+                <h3> Eye Shadow</h3>
+                <p>₹1269</p>
+                <button class="add-to-cart" data-price="1269">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="face wash.jpeg" width="100px"
+                height="350px" class="card-img-top" alt="Face Wash">
+                <h3> Face Wash</h3>
+                <p>₹200</p>
+                <button class="add-to-cart" data-price="200">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="face wipes.jpeg" width="100px"
+                height="350px" class="card-img-top" alt="Face Wipes">
+                <h3> Face Wipes</h3>
+                <p>₹400</p>
+                <button class="add-to-cart" data-price="400">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="facemoisturizer.jpeg" width="100px"
+                height="350px" class="card-img-top" alt="facemoisturizer">
+                <h3> facemoisturizer</h3>
+                <p>₹500</p>
+                <button class="add-to-cart" data-price="500">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="hair brush.jpeg" width="100px"
+                height="350px" class="card-img-top" alt="Hair Brush">
+                <h3> Hair Brush</h3>
+                <p>₹550</p>
+                <button class="add-to-cart" data-price="550">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="hair colour.jpeg" width="100px"
+                height="350px" class="card-img-top" alt="Hair Colour">
+                <h3> Hair Colour</h3>
+                <p>₹50</p>
+                <button class="add-to-cart" data-price="50">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="hair creme and mask.jpeg" width="100px"
+                height="350px" class="card-img-top" alt="Hair Creme and Mask">
+                <h3> Hair Creme and Mask</h3>
+                <p>₹450</p>
+                <button class="add-to-cart" data-price="450">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="hair dryer.jpeg" width="100px"
+                height="350px" class="card-img-top" alt="Hair Dryer">
+                <h3> Hair Dryer</h3>
+                <p>₹1450</p>
+                <button class="add-to-cart" data-price="1450">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="hair extentions.jpeg" width="100px"
+                height="350px" class="card-img-top" alt="Hair Extentions Wipes">
+                <h3> Hair Extentions Wipes</h3>
+                <p>₹1550</p>
+                <button class="add-to-cart" data-price="1550">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="hair serum.jpeg" width="100px"
+                height="350px" class="card-img-top" alt="Hair Serum">
+                <h3> Hair Serum</h3>
+                <p>₹550</p>
+                <button class="add-to-cart" data-price="550">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="hand wash.jpeg" width="100px"
+                height="350px" class="card-img-top" alt="Hand Wash">
+                <h3> Hand Wash</h3>
+                <p>₹200</p>
+                <button class="add-to-cart" data-price="200">Add to Cart</button>
+            </div>
+
+
+
+            <!-- Add more products here -->
+        </div>
+        <hr>
+        <div class="cart">
+            <h1><center>Cart <i class="fas fa-shopping-cart"></i></center></h1><br>
+            
+            <ul class="cart-items">
+                <!-- Cart items will be added dynamically -->
+            </ul><center>
+            <h3>Total: <span class="total-price">₹0</span></h3>
+           
+<!--<button class="custom-button">Click Me</button>
+-->
+            <button class="custom-button"><a href="paymentgateway.html"><h4>Checkout</h4></a>  </button>
+            </center>
+
+
+    </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add to Cart</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .custom-button{
+            background-color: #b2ced5;
+            color: black;  
+            text-decoration-color: black;
+        }
+        .chatbot-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 1px; 
+            height: 1px; 
+            background-color: #007bff; 
+            border-radius: 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 4px solid darkblue;
+            border-radius: 5px;
+            background-color: #ccdee3;
+        }
+        .product {
+            margin-bottom: 20px;
+        }
+        .product img {
+            width: 100px;
+            height: 100px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        .product-info {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .total {
+            text-align: right;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <center><a class="navbar-brand" href="logo.png">
+            <img src="logo.png" alt="Zarriya" width="130" height="110">
+        </a></center>
+
+        <div class="product" data-price="500">
+            <a href="blush.jpeg"><img src="blush.jpeg" alt="blush"></a>
+            <div class="product-info">
+                <h2>March Beauty Cream Blush</h2>
+                <p>Price: ₹500</p>
+                <p>Add a natural flush to your cheeks.</p>
+                <button class="add-to-cart" data-price="500">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product" data-price="700">
+            <a href="lip tint.jpg"><img src="lip tint.jpeg" alt="Lip Tint"></a>
+            <div class="product-info">
+                <h2>March Beauty Lip Tint</h2>
+                <p>Price: ₹300</p>
+                <p>Get a subtle hint of color for your lips.</p>
+                <button class="add-to-cart" data-price="300">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- <div class="product" data-price="100">
+            <a href="lip gloss.jpeg"><img src="lip gloss.jpeg" alt="Lip Gloss"></a>
+            <div class="product-info">
+                <h2>Lip Gloss</h2>
+                <p>Price: ₹100</p>
+                <button class="add-to-cart" data-price="100">Add to Cart</button>
+            </div>
+        </div>  -->
+
+
+        <div class="product" data-price="100">
+            <a href="rose water.jpeg"><img src="rose water.jpeg" alt="Lip Gloss"></a>
+            <div class="product-info">
+                <h2>Forest Essentials Facial Tonic Mist with Pure Rosewater</h2>
+                <p>Price: ₹1063</p>
+                <p>Revitalize and refresh your skin.</p>
+                <button class="add-to-cart" data-price="1063">Add to Cart</button>
+            </div>
+        </div>
+        
+        <div class="product" data-price="100">
+            <a href="fruit facial kit.jpeg"><img src="fruit facial kit.jpeg" alt="Lip Gloss"></a>
+            <div class="product-info">
+                <h2>VLCC Papaya Fruit Facial Kit With Free Rose Water Toner</h2>
+                <p>Price: ₹726</p>
+                <p>Nourish and rejuvenate your skin.</p>
+                <button class="add-to-cart" data-price="726">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product" data-price="100">
+            <a href="bb cream.jpeg"><img src="bb cream.jpeg" alt="Lip Gloss"></a>
+            <div class="product-info">
+                <h2>The Derma Co BB Cream with Niacinamide SPF 30 PA ++</h2>
+                <p>Price: ₹355</p>
+                <p>Provides light coverage and sun protection.</p>
+                <button class="add-to-cart" data-price="355">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product" data-price="100">
+            <a href="kiro lipstic.jpeg"><img src="kiro lipstic.jpeg" alt="Lip Gloss"></a>
+            <div class="product-info">
+                <h2>Kiro Lush Moist Matte Lipstick - Spicy Cinnamon</h2>
+                <p>Price: ₹600</p>
+                <p>Get bold and beautiful lips.</p>
+                <button class="add-to-cart" data-price="600">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="total">
+            <center> <i class="fas fa-shopping-cart"></i>    Total: ₹<span id="total">0</span><br>
+            <button class="custom-button"><a href="paymentgateway.html"><h4>Checkout</h4></a>  </button>
+         </center>
+         </div>
+         
+     </div>
+ 
+     <script>
+         document.querySelectorAll('.add-to-cart').forEach(button => {
+             button.addEventListener('click', () => {
+                 const price = parseInt(button.getAttribute('data-price'));
+                 const total = parseInt(document.getElementById('total').textContent);
+                 document.getElementById('total').textContent = total + price;
+             });
+         });
+     </script>
+ </body>
+ </html>
